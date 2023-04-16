@@ -3,13 +3,8 @@ class ValidatePassword
     @password = password
   end
   def perform
-
     regex = /^(?=.{8,24}$)(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@$#%&*+=:;?<>])(?!.*(.)\1\1).*/
 
-    if @password =~ regex
-      return true
-    else
-      return false
-    end
+    @password =~ regex ? true : false
   end
 end
